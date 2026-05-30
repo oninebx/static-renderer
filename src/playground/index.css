@@ -108,3 +108,5 @@ svg {
     scroll-behavior: auto !important;
   }
 }
+
+@import "tailwindcss";
