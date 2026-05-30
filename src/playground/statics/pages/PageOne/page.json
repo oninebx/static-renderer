@@ -1,0 +1,11 @@
+{
+  "layout": "ArticleLayout",
+  "title": "Page One",
+  "description": "This is the first page of the playground.",
+  "content": [
+    {
+      "type": "Typography",
+      "children": "Welcome to Page One! This page is designed to demonstrate the capabilities of our static renderer. It uses the ArticleLayout, which provides a clean and organized structure for presenting content. Feel free to explore the different components and layouts available in the playground!"
+    }
+  ]
+}

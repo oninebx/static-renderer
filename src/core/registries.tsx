@@ -1,7 +1,7 @@
 
 // Component Registry
 
-export type Registry = Record<string, React.ComponentType<unknown>>;
+export type Registry = Record<string, React.ElementType>;
 
 const componentsRegistry: Registry = {};
 
@@ -18,7 +18,7 @@ const getComponent = (name: string) => {
 
 const layoutRegistry: Registry = {};
 
-const registerLayouts = (layouts: Record<string, React.ComponentType<never>>) => {
+const registerLayouts = (layouts: Registry) => {
   Object.assign(layoutRegistry, layouts);
 };
 

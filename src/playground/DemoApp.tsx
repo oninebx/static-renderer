@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import './layouts';
+import './statics/layouts';
+import './statics/components';
 import { RenderPage } from "../core/renderPage";
-import aboutPageConfig from './pages/PageOne/page.json';
+import aboutPageConfig from './statics/pages/PageOne/page.json';
 
 const DemoApp = () => (
 <Routes>

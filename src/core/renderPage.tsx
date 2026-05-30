@@ -1,21 +1,24 @@
-import React from "react";
 import { getLayout } from "./registries";
+import renderNode from "./renderNode";
+import type { NodeContent } from "./types";
 
 interface PageConfig {
   layout: string;
+  content: NodeContent;
   [key: string]: unknown;
 }
 
-export const RenderPage = ({ layout, ...rest }: PageConfig) => {
-  const RawLayout = getLayout(layout);
+export const RenderPage = ({ layout, content, ...rest }: PageConfig) => {
+  const Layout = getLayout(layout);
 
-  if (!RawLayout) return <div>Layout not found</div>;
-
-  const Layout = RawLayout as React.ComponentType<Record<string, unknown>>;
+  if (!Layout) return <div>Layout not found</div>;
 
   return (
     <Layout {...rest}>
-      <div>页面正文</div>
+      {
+        Array.isArray(content) ? 
+          content.map((node, index) => renderNode(node, index.toString())) : renderNode(content)
+      }
     </Layout>
   );
 };
