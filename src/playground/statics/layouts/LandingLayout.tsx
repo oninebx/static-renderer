@@ -3,7 +3,7 @@ import React from "react";
 type LandingLayoutProps = {
   heroTitle: string;
   heroSubtitle?: string;
-  sideContent: React.ReactNode; // 用来和 children 做左右双栏对比
+  sideContent: React.ReactNode;
   children: React.ReactNode;
 };
 

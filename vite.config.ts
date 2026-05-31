@@ -8,4 +8,10 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  resolve: {
+    alias: {
+      '@core': '/src/core',
+      '@playground': '/src/playground'
+    }
+  }
 })

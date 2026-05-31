@@ -1,13 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import './statics/layouts';
 import './statics/components';
-import { RenderPage } from "../core/renderPage";
-import aboutPageConfig from './statics/pages/PageOne/page.json';
+import './statics'
+import mountPages from "./statics";
+
+
 
 const DemoApp = () => (
 <Routes>
   <Route path="/" element={<div>Demo App</div>} />
-  <Route path="/about" element={RenderPage(aboutPageConfig)} />
+  { mountPages() }
+  <Route path="*" element={<div>Page not found</div>} />
 </Routes>);
 
 export default DemoApp;

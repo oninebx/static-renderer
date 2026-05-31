@@ -19,7 +19,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path Aliases */
+    "paths": {
+      "@core/*": ["./src/core/*"],
+      "@playground/*": ["./src/playground/*"]
+    }
   },
   "include": ["src"]
 }

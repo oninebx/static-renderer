@@ -1,14 +1,10 @@
 import { getLayout } from "./registries";
 import renderNode from "./renderNode";
-import type { NodeContent } from "./types";
+import type { PageConfig } from "./types";
 
-interface PageConfig {
-  layout: string;
-  content: NodeContent;
-  [key: string]: unknown;
-}
 
-export const RenderPage = ({ layout, content, ...rest }: PageConfig) => {
+
+const renderPage = ({ layout, content, ...rest }: PageConfig) => {
   const Layout = getLayout(layout);
 
   if (!Layout) return <div>Layout not found</div>;
@@ -22,3 +18,5 @@ export const RenderPage = ({ layout, content, ...rest }: PageConfig) => {
     </Layout>
   );
 };
+
+export default renderPage;
