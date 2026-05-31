@@ -1,3 +1,6 @@
+import type { ElementType } from "react";
+
+type Registry = Record<string, ElementType>;
 
 interface PageConfig {
   layout: string;
@@ -17,6 +20,7 @@ interface NodeConfig {
 type NodeContent = NodeConfig | NodeConfig[] | string | number | boolean | null;
 
 export type {
+  Registry,
   PageConfig,
   NodeConfig,
   NodeContent

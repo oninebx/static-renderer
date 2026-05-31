@@ -1,20 +1,22 @@
-import createStaticRoutes from '@core/mountPages';
+import { Route } from 'react-router-dom';
 import { components } from './components';
 import { layouts } from './layouts';
 import about from './pages/about.json';
 import contact from './pages/contact.json';
-import { Route } from 'react-router-dom';
+import createRenderer from '@core/createRenderer';
 
 const routes = [
-  { path: '/about', pageConfig: about },
-  { path: '/contact', pageConfig: contact },
+  { path: '/about', page: about },
+  { path: '/contact', page: contact },
 ];
 
-export default createStaticRoutes(
-  routes,
-  (path, element) => <Route key={path} path={path} element={element} />,
-  {
-    components,
-    layouts,
-  }
-);
+const renderer = createRenderer({
+  layouts,
+  components,
+});
+
+const registeredRoutes = renderer.createRoutes(routes, {
+  createRoute: (path, element) => <Route key={path} path={path} element={element} />
+});
+
+export default registeredRoutes;
