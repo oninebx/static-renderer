@@ -1,8 +1,7 @@
-import { registerLayouts } from '../../../core/registries';
 import { ArticleLayout } from './ArticleLayout';
 import { LandingLayout } from './LandingLayout';
 
-registerLayouts({
+export const layouts = {
   ArticleLayout,
-  LandingLayout
-});
+  LandingLayout,
+};

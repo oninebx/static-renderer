@@ -1,19 +1,26 @@
-import renderPage from "./renderPage";
-import type { PageConfig } from "./types";
+import type { ReactNode } from 'react';
+import renderPage from './renderPage';
+import type { PageConfig } from './types';
+import type { Registry } from './registries';
 
-interface StaticPageRoute {
+export interface StaticPageRoute {
   path: string;
   pageConfig: PageConfig;
 }
 
-const registeredPages: StaticPageRoute[] = [];
+export interface MountPagesOptions {
+  components?: Registry;
+  layouts?: Registry;
+  onMissingComponent?: (type: string) => ReactNode;
+  onMissingLayout?: (layout: string) => ReactNode;
+}
 
-export const registerPage = (path: string, pageConfig: PageConfig) => {
-  registeredPages.push({ path, pageConfig });
+const createStaticRoutes = (
+  routes: StaticPageRoute[],
+  createRoute: (path: string, element: ReactNode) => ReactNode,
+  options: MountPagesOptions = {}
+) => {
+  return routes.map(({ path, pageConfig }) => createRoute(path, renderPage(pageConfig, options)));
 };
 
-const mountStaticPages = (createRoute: (path: string, element: React.ReactNode) => React.ReactNode) => () => {
-  return registeredPages.map(({ path, pageConfig }) => createRoute(path, renderPage(pageConfig)));
-};
-
-export default mountStaticPages;
+export default createStaticRoutes;
