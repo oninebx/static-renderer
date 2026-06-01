@@ -1,11 +1,6 @@
-import { createElement, Fragment, type ReactNode } from 'react';
+import { createElement, type ReactNode } from 'react';
 import type { NodeContent, Registry } from './types';
 
-const VALID_HTML_TAGS = new Set([
-  'div', 'span', 'p', 'a', 'button', 'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-  'ul', 'ol', 'li', 'section', 'article', 'nav', 'header', 'footer', 'main',
-  'b', 'i', 'strong', 'em', 'input', 'textarea', 'label', 'form', 'svg', 'path'
-]);
 
 interface RenderNodeOptions {
   components?: Registry;
@@ -29,8 +24,8 @@ const renderNode = (
     return node;
   }
 
-  const { type, children, props = {} } = node;
-  const componentProps = { ...props, key };
+  const { type, children, ...rest } = node;
+  const componentProps = { ...rest, key };
   const Component = options.components?.[type];
 
   const childrenNodes = Array.isArray(children)
@@ -40,17 +35,6 @@ const renderNode = (
   if (Component) {
     return createElement(Component, componentProps, childrenNodes);
   }
-
-  // if (typeof type === 'string') {
-  //   if (type === 'Fragment' || type === 'fragment') {
-  //     return createElement(Fragment, componentProps, childrenNodes);
-  //   }
-
-  //   const isIntrinsicElement = VALID_HTML_TAGS.has(type);
-  //   if (isIntrinsicElement) {
-  //     return createElement(type, componentProps, childrenNodes);
-  //   }
-  // }
 
   if (options.onMissingComponent) {
     return options.onMissingComponent(type);

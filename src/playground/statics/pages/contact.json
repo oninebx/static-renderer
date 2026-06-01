@@ -1,16 +1,12 @@
 {
   "layout": "LandingLayout",
-  "props": {
-    "heroTitle": "Page Contact",
-    "heroSubtitle": "This is the contact page of the playground.",
-    "sideContent": null
-  },
+  "heroTitle": "Page Contact",
+  "heroSubtitle": "This is the contact page of the playground.",
+  "sideContent": null,
   "content": [
     {
       "type": "Typography",
-      "props": {
-        "as": "p"
-      },
+       "as": "p",
       "children": "Welcome to Page Contact! This page is designed to demonstrate the capabilities of our static renderer. It uses the LandingLayout, which provides a clean and organized structure for presenting content. Feel free to explore the different components and layouts available in the playground!"
     }
   ]

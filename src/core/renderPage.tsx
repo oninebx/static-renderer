@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import renderNode from './renderNode';
-import type { PageConfig } from './types';
-import type { Registry } from './registries';
+import type { PageConfig, Registry } from './types';
 
 interface RenderPageOptions {
   components?: Registry;
@@ -14,7 +13,7 @@ const renderPage = (
   pageConfig: PageConfig,
   options: RenderPageOptions = {}
 ): ReactNode => {
-  const { layout, content, props = {} } = pageConfig;
+  const { layout, content, ...rest } = pageConfig;
   const Layout = options.layouts?.[layout];
 
   const children = Array.isArray(content)
@@ -34,7 +33,7 @@ const renderPage = (
   }
 
   return (
-    <Layout {...props}>
+    <Layout {...rest}>
       {children}
     </Layout>
   );

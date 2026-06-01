@@ -6,13 +6,11 @@ interface PageConfig {
   layout: string;
   content?: NodeContent;
   path?: string;
-  props?: Record<string, unknown>;
   [key: string]: unknown;
 }
 
 interface NodeConfig {
   type: string;
-  props?: Record<string, unknown>;
   children?: NodeContent;
   [key: string]: unknown;
 }

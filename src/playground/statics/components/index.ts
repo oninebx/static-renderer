@@ -1,4 +1,4 @@
-import type { Registry } from '@core/registries';
+import type { Registry } from '@core/types';
 import Typography from './Typography';
 
 const defaultComponents: Registry = {
