@@ -1,13 +1,13 @@
 import { Route } from 'react-router-dom';
 import { components } from './components';
 import { layouts } from './layouts';
-import about from './pages/about.json';
-import contact from './pages/contact.json';
+import article from './pages/article.json';
+import landing from './pages/landing.json';
 import createRenderer from '@core/createRenderer';
 
 const routes = [
-  { path: '/about', page: about },
-  { path: '/contact', page: contact },
+  { path: '/article', page: article },
+  { path: '/landing', page: landing },
 ];
 
 const renderer = createRenderer({

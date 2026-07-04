@@ -1,3 +1,4 @@
+import Breadcrumb from "@playground/components/Breadcrumb";
 import { type PropsWithChildren } from "react";
 
 type ArticleLayoutProps = {
@@ -26,7 +27,7 @@ export const ArticleLayout = ({
             </p>
           )}
         </header>
-
+          <Breadcrumb />
         {/* Content */}
         <article className="prose prose-gray max-w-none">
           {children}
